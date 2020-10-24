@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <script src="./Classes.js"></script>
+    <script src="./Common.js"></script>
+    <script>
+        function createObj() {
+            let id = parseInt($("empId").value);
+            let name = $("empName").value;
+            let address = $("empAddress").value;
+            let empObj = new employee(id, name, address);
+            
+            let text = `<h1>The Name: ${empObj.empName}</h1><h1>From :${empObj.empAddress}</h1>`;
+            $("pDisplay").innerHTML = text;
+        }
+    </script>
+</head>
+<body>         
+    <div>
+        <h1>Forms</h1>
+        <section>
+            <p>Enter the Employee ID: <input type="number"  id="empId"> </p>
+            <p>Enter the Employee Name: <input type="text"  id="empName"> </p>
+            <p>Enter the Employee Address: <input type="text"  id="empAddress"> </p>
+            
+            <label for="city">Choose your city from the list:</label>
+            <input list="cities" name="city" id="city">
+
+            <datalist id="cities">
+            <option value="Chennai">
+            <option value="Bangalore">
+            <option value="Mysore">
+            <option value="Baroda">
+            <option value="Mumbai">
+            </datalist>
+            <p>
+                Gender: <input type="radio" name="gender">Male <input type="radio" name="gender">Female</p>
+            </p>
+            <p><button onclick="createObj()">Register</button></p>
+        </section>
+    </div>
+    <div>
+        <h1>Employee Details</h1>
+        <p id="pDisplay">
+
+        </p>
+    </div>
+</body>
+</html>
